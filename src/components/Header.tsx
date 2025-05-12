@@ -1,21 +1,28 @@
 
 import React from 'react';
-import { Anchor, Sword } from 'lucide-react';
+import { Shield, Search, HelpCircle } from 'lucide-react';
 
 const Header: React.FC = () => {
   return (
-    <header className="w-full py-4 px-6 flex justify-between items-center bg-pirate-dark border-b border-pirate-gold/40">
-      <div className="flex items-center gap-3">
-        <Anchor className="w-10 h-10 text-pirate-gold" />
-        <h1 className="text-2xl md:text-3xl font-bold">Digital Bounty Board</h1>
+    <header className="w-full py-4 px-6 flex justify-between items-center bg-white border-b border-theme-border/30 sticky top-0 z-10 backdrop-blur-sm bg-white/90">
+      <div className="flex items-center gap-2">
+        <Shield className="w-6 h-6 text-theme-primary" />
+        <h1 className="text-xl font-semibold">Digital Footprint</h1>
       </div>
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-6">
+        <a 
+          href="#"
+          className="text-theme-foreground/70 hover:text-theme-primary transition-colors flex items-center gap-1 text-sm"
+        >
+          <Search className="w-4 h-4" />
+          <span>Scanner</span>
+        </a>
         <a 
           href="#about"
-          className="text-pirate-gold hover:text-pirate-straw transition-colors flex items-center"
+          className="text-theme-foreground/70 hover:text-theme-primary transition-colors flex items-center gap-1 text-sm"
         >
+          <HelpCircle className="w-4 h-4" />
           <span>About</span>
-          <Sword className="w-4 h-4 ml-1 rotate-45" />
         </a>
       </div>
     </header>

@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Anchor } from 'lucide-react';
+import { Search, User, Mail, AtSign, Loader } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/components/ui/use-toast';
@@ -111,54 +111,57 @@ const ScanForm: React.FC<ScanFormProps> = ({ onScanComplete }) => {
     };
   };
 
+  const scanTypeIcons = {
+    handle: <AtSign className="w-5 h-5" />,
+    email: <Mail className="w-5 h-5" />,
+    name: <User className="w-5 h-5" />
+  };
+
   return (
-    <div className="w-full max-w-md mx-auto bounty-poster">
-      <h2 className="text-xl text-pirate-navy font-bold mb-4 text-center">
-        Scan Your Digital Bounty
-      </h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="flex gap-2">
-          <label className={`flex-1 text-center p-2 rounded-md border cursor-pointer 
-            ${scanType === 'handle' ? 'bg-pirate-gold text-pirate-dark border-pirate-dark' : 
-            'bg-pirate-parchment text-pirate-navy border-pirate-gold'}`}
-            onClick={() => setScanType('handle')}>
-            Handle
-          </label>
-          <label className={`flex-1 text-center p-2 rounded-md border cursor-pointer 
-            ${scanType === 'email' ? 'bg-pirate-gold text-pirate-dark border-pirate-dark' : 
-            'bg-pirate-parchment text-pirate-navy border-pirate-gold'}`}
-            onClick={() => setScanType('email')}>
-            Email
-          </label>
-          <label className={`flex-1 text-center p-2 rounded-md border cursor-pointer 
-            ${scanType === 'name' ? 'bg-pirate-gold text-pirate-dark border-pirate-dark' : 
-            'bg-pirate-parchment text-pirate-navy border-pirate-gold'}`}
-            onClick={() => setScanType('name')}>
-            Name
-          </label>
+    <div className="w-full max-w-md mx-auto">
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="flex justify-center gap-3 mb-2">
+          {(Object.keys(scanTypeIcons) as ScanType[]).map((type) => (
+            <label 
+              key={type}
+              className={`flex-1 flex flex-col items-center gap-2 p-3 rounded-xl cursor-pointer transition-all border-2 
+                ${scanType === type 
+                  ? 'bg-theme-primary/10 border-theme-primary text-theme-primary shadow-sm' 
+                  : 'bg-white border-theme-border/40 text-theme-foreground/70 hover:bg-theme-primary/5'}`}
+              onClick={() => setScanType(type)}
+            >
+              {scanTypeIcons[type]}
+              <span className="capitalize text-sm font-medium">{type}</span>
+            </label>
+          ))}
         </div>
         
-        <Input
-          placeholder={`Enter your ${scanType}...`}
-          className="bg-white text-pirate-dark"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-        />
+        <div className="relative">
+          <Input
+            placeholder={`Enter your ${scanType}...`}
+            className="search-input pl-12"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+          />
+          <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-theme-primary">
+            <Search className="w-5 h-5" />
+          </div>
+        </div>
         
         <Button 
           type="submit" 
-          className="pirate-button w-full"
+          className="w-full py-6 rounded-xl bg-gradient-to-r from-theme-primary to-theme-secondary hover:opacity-90 transition-opacity text-white flex gap-2"
           disabled={isScanning}
         >
           {isScanning ? (
             <>
-              <span className="animate-pulse">Scanning the seas...</span>
-              <Anchor className="ml-2 animate-spin" />
+              <Loader className="w-5 h-5 animate-spin" />
+              <span>Scanning digital footprint...</span>
             </>
           ) : (
             <>
-              <span>Hunt for Bounty</span>
-              <Anchor className="ml-2" />
+              <Search className="w-5 h-5" />
+              <span>Scan Digital Footprint</span>
             </>
           )}
         </Button>

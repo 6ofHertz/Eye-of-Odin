@@ -63,15 +63,19 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// One Piece theme colors
-				pirate: {
-					navy: '#0F3460',
-					gold: '#E6AF2E',
-					red: '#BF1A2F',
-					parchment: '#F5DEB3',
-					dark: '#1A1A2E',
-					ocean: '#1E4D8C',
-					straw: '#FFCC66'
+				// New modern theme colors
+				theme: {
+					primary: '#3D5AFE',
+					secondary: '#651FFF',
+					accent: '#00BFA5',
+					background: '#F5F7FA',
+					foreground: '#2A2C35',
+					border: '#E2E8F0',
+					muted: '#94A3B8',
+					success: '#00C853',
+					warning: '#FFD600',
+					danger: '#FF3D00',
+					card: '#FFFFFF',
 				}
 			},
 			borderRadius: {
@@ -99,17 +103,14 @@ export default {
 					'75%': { transform: 'translateX(-5px) translateY(5px)' },
 					'100%': { transform: 'translateX(0) translateY(0)' }
 				},
-				'storm': {
-					'0%, 100%': { transform: 'rotate(-3deg) translateY(0)' },
-					'25%': { transform: 'rotate(0deg) translateY(5px)' },
-					'50%': { transform: 'rotate(3deg) translateY(0)' },
-					'75%': { transform: 'rotate(0deg) translateY(-5px)' }
+				'pulse-ring': {
+					'0%': { transform: 'scale(0.8)', opacity: '0' },
+					'50%': { opacity: '0.5' },
+					'100%': { transform: 'scale(1.5)', opacity: '0' }
 				},
-				'attack': {
-					'0%, 100%': { transform: 'rotate(-5deg) translateY(-2px)' },
-					'25%': { transform: 'rotate(2deg) translateY(7px)' },
-					'50%': { transform: 'rotate(5deg) translateY(-2px)' },
-					'75%': { transform: 'rotate(-2deg) translateY(7px)' }
+				'fade-in': {
+					'0%': { opacity: '0' },
+					'100%': { opacity: '1' }
 				}
 			},
 			animation: {
@@ -117,12 +118,12 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'float': 'float 3s ease-in-out infinite',
 				'wave': 'wave 4s ease-in-out infinite',
-				'storm': 'storm 2s ease-in-out infinite',
-				'attack': 'attack 1s ease-in-out infinite',
+				'pulse-ring': 'pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite',
+				'fade-in': 'fade-in 0.5s ease-out'
 			},
 			backgroundImage: {
-				'ocean-pattern': "url('/images/ocean-bg.png')",
-				'parchment-texture': "url('/images/parchment-bg.png')",
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+				'gradient-dots': 'radial-gradient(circle, #00000010 1px, transparent 1px)',
 			}
 		}
 	},
