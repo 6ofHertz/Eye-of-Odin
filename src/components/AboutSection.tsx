@@ -1,26 +1,26 @@
 
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Flag, Anchor } from 'lucide-react';
+import { Anchor, Skull, Compass, Map } from 'lucide-react';
 
 const AboutSection: React.FC = () => {
   return (
     <section id="about" className="w-full max-w-4xl mx-auto py-12 px-4">
       <h2 className="text-3xl font-bold text-center mb-8 flex items-center justify-center gap-3">
-        <Flag className="w-8 h-8" />
+        <Skull className="w-8 h-8 text-pirate-red" />
         About Digital Bounty Board
-        <Flag className="w-8 h-8" />
+        <Skull className="w-8 h-8 text-pirate-red" />
       </h2>
       
       <div className="grid md:grid-cols-2 gap-6">
-        <Card className="bg-pirate-dark border border-pirate-gold">
-          <CardHeader>
+        <Card className="bg-pirate-dark border border-pirate-gold shadow-lg">
+          <CardHeader className="border-b border-pirate-gold/30">
             <CardTitle className="flex items-center gap-2">
-              <Anchor className="text-pirate-gold" />
+              <Compass className="text-pirate-gold" />
               What is OSINT?
             </CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="pt-4">
             <p>
               OSINT (Open Source Intelligence) refers to information collected from publicly available sources,
               including social media, websites, data breaches, and public records. Our Digital Bounty Board
@@ -29,14 +29,14 @@ const AboutSection: React.FC = () => {
           </CardContent>
         </Card>
         
-        <Card className="bg-pirate-dark border border-pirate-gold">
-          <CardHeader>
+        <Card className="bg-pirate-dark border border-pirate-gold shadow-lg">
+          <CardHeader className="border-b border-pirate-gold/30">
             <CardTitle className="flex items-center gap-2">
-              <Flag className="text-pirate-gold" />
+              <Skull className="text-pirate-gold" />
               Why Digital Bounty?
             </CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="pt-4">
             <p>
               Just like pirates of old had bounties on their heads, your digital presence has a "bounty" of
               information available. Our tool helps you understand what digital "treasures" (your personal data)
@@ -47,11 +47,14 @@ const AboutSection: React.FC = () => {
       </div>
       
       <div className="mt-8">
-        <Card className="bg-pirate-dark border border-pirate-gold">
-          <CardHeader>
-            <CardTitle>How It Works</CardTitle>
+        <Card className="bg-pirate-dark border border-pirate-gold shadow-lg">
+          <CardHeader className="border-b border-pirate-gold/30">
+            <CardTitle className="flex items-center gap-2">
+              <Map className="text-pirate-gold" />
+              How It Works
+            </CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="pt-4">
             <ol className="list-decimal list-inside space-y-2">
               <li>
                 <span className="font-bold">Enter your information:</span> Provide a username/handle, email address, or name.
