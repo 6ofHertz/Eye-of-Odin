@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { ScanResult } from './ScanForm';
-import { TreasureChest, Flag } from 'lucide-react';
+import { Flag } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 
 interface ScanResultsProps {
@@ -15,7 +15,7 @@ const ScanResults: React.FC<ScanResultsProps> = ({ result }) => {
     <div className="w-full max-w-2xl mx-auto my-8">
       <div className="bounty-poster mb-6">
         <div className="absolute -top-3 -right-3 transform rotate-12">
-          <TreasureChest className="w-10 h-10 text-pirate-red" />
+          <Flag className="w-10 h-10 text-pirate-red" />
         </div>
         <div className="absolute -top-3 -left-3 transform -rotate-12">
           <Flag className="w-10 h-10 text-pirate-red" />

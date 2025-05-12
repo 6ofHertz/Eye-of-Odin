@@ -1,15 +1,15 @@
 
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { PirateFlag, Anchor, TreasureChest } from 'lucide-react';
+import { Flag, Anchor } from 'lucide-react';
 
 const AboutSection: React.FC = () => {
   return (
     <section id="about" className="w-full max-w-4xl mx-auto py-12 px-4">
       <h2 className="text-3xl font-bold text-center mb-8 flex items-center justify-center gap-3">
-        <PirateFlag className="w-8 h-8" />
+        <Flag className="w-8 h-8" />
         About Digital Bounty Board
-        <PirateFlag className="w-8 h-8" />
+        <Flag className="w-8 h-8" />
       </h2>
       
       <div className="grid md:grid-cols-2 gap-6">
@@ -32,7 +32,7 @@ const AboutSection: React.FC = () => {
         <Card className="bg-pirate-dark border border-pirate-gold">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <TreasureChest className="text-pirate-gold" />
+              <Flag className="text-pirate-gold" />
               Why Digital Bounty?
             </CardTitle>
           </CardHeader>
