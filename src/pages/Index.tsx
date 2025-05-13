@@ -4,7 +4,7 @@ import Header from '@/components/Header';
 import ScanForm, { ScanResult } from '@/components/ScanForm';
 import ScanResults from '@/components/ScanResults';
 import AboutSection from '@/components/AboutSection';
-import { Shield, AlertCircle } from 'lucide-react';
+import { Eye, AlertCircle } from 'lucide-react';
 
 const Index = () => {
   const [scanResult, setScanResult] = useState<ScanResult | null>(null);
@@ -24,22 +24,22 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
       <Header />
       
       <main className="flex-1 container mx-auto px-4 py-8">
         <section className="max-w-3xl mx-auto text-center mb-16 mt-8 animate-fade-in">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-theme-primary to-theme-secondary text-transparent bg-clip-text">
-            Digital Footprint Scanner
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-amber-400 to-amber-600 text-transparent bg-clip-text">
+            Eye of Odin
           </h1>
-          <p className="text-xl text-theme-foreground/70 max-w-2xl mx-auto">
-            Discover your digital exposure across the internet and take control of your online privacy.
+          <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+            <span className="font-semibold">See All, Know All, Secure All</span> - Discover your digital exposure across the internet and take control of your online privacy.
           </p>
           
-          <div className="mt-10 max-w-2xl mx-auto bg-gradient-to-b from-white to-theme-background p-8 rounded-3xl shadow-lg border border-theme-border/20">
+          <div className="mt-10 max-w-2xl mx-auto bg-slate-800 p-8 rounded-3xl shadow-lg border border-slate-700 backdrop-blur-sm">
             <div className="flex items-center justify-center gap-2 mb-6">
-              <Shield className="text-theme-primary w-6 h-6" />
-              <h2 className="text-xl font-medium text-theme-foreground">Scan Your Digital Presence</h2>
+              <Eye className="text-amber-500 w-6 h-6 animate-pulse" />
+              <h2 className="text-xl font-medium text-slate-200">Scan Your Digital Presence</h2>
             </div>
             <ScanForm onScanComplete={handleScanComplete} />
           </div>
@@ -51,13 +51,13 @@ const Index = () => {
         
         <div className="my-12 max-w-5xl mx-auto">
           <div className="flex items-center justify-center gap-3 mb-8">
-            <AlertCircle className="text-theme-accent w-5 h-5" />
-            <h2 className="text-2xl font-semibold">Privacy Matters</h2>
-            <AlertCircle className="text-theme-accent w-5 h-5" />
+            <AlertCircle className="text-amber-500 w-5 h-5" />
+            <h2 className="text-2xl font-semibold text-slate-200">Privacy Matters</h2>
+            <AlertCircle className="text-amber-500 w-5 h-5" />
           </div>
           
-          <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-theme-border/30 shadow-sm">
-            <p className="text-theme-foreground/80 text-center max-w-3xl mx-auto">
+          <div className="bg-slate-800/80 backdrop-blur-sm p-6 rounded-2xl border border-slate-700 shadow-lg">
+            <p className="text-slate-300 text-center max-w-3xl mx-auto">
               Your digital footprint can reveal more than you think. Our scanner helps identify potentially exposed 
               information so you can take steps to protect your privacy online.
             </p>
@@ -67,8 +67,8 @@ const Index = () => {
         <AboutSection />
       </main>
       
-      <footer className="py-6 px-4 text-center text-theme-muted bg-white border-t border-theme-border/20">
-        <p>© 2025 Digital Footprint Scanner - Privacy First Platform</p>
+      <footer className="py-6 px-4 text-center text-slate-500 bg-slate-900 border-t border-slate-800">
+        <p>© 2025 Eye of Odin - See All, Know All, Secure All</p>
       </footer>
     </div>
   );
