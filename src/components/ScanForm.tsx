@@ -127,7 +127,7 @@ const ScanForm: React.FC<ScanFormProps> = ({ onScanComplete }) => {
               className={`flex-1 flex flex-col items-center gap-2 p-3 rounded-xl cursor-pointer transition-all border-2 
                 ${scanType === type 
                   ? 'bg-amber-500/10 border-amber-500 text-amber-500 shadow-md' 
-                  : 'bg-slate-700 border-slate-600 text-slate-300 hover:bg-slate-600'}`}
+                  : 'bg-slate-100 dark:bg-slate-700 border-slate-200 dark:border-slate-600 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600'}`}
               onClick={() => setScanType(type)}
             >
               {scanTypeIcons[type]}
@@ -139,7 +139,7 @@ const ScanForm: React.FC<ScanFormProps> = ({ onScanComplete }) => {
         <div className="relative">
           <Input
             placeholder={`Enter your ${scanType}...`}
-            className="search-input pl-12 bg-slate-700 border-slate-600 text-slate-200 focus:border-amber-500 focus:ring-amber-500"
+            className="search-input pl-12 bg-slate-100 dark:bg-slate-700 border-slate-200 dark:border-slate-600 text-slate-800 dark:text-slate-200 focus:border-amber-500 focus:ring-amber-500"
             value={input}
             onChange={(e) => setInput(e.target.value)}
           />
