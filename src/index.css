@@ -92,6 +92,44 @@ body {
     filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.8));
     animation: eye-glow 3s infinite;
   }
+  
+  /* Greek-inspired patterns and elements */
+  .greek-border {
+    background-image: repeating-linear-gradient(45deg, rgba(245, 158, 11, 0.1) 0, rgba(245, 158, 11, 0.1) 2px, transparent 0, transparent 8px);
+  }
+  
+  .stars {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    box-shadow: 
+      1744px 122px #ffffff, 134px 1321px #ffffff, 92px 859px #ffffff,
+      1183px 98px #ffffff, 505px 1528px #ffffff, 1277px 453px #ffffff, 
+      1101px 198px #ffffff, 1386px 1038px #ffffff, 399px 1623px #ffffff,
+      990px 722px #ffffff, 981px 329px #ffffff, 1547px 433px #ffffff, 
+      1154px 1196px #ffffff, 169px 1145px #ffffff, 650px 492px #ffffff, 
+      370px 1610px #ffffff, 1144px 614px #ffffff, 98px 383px #ffffff, 
+      518px 451px #ffffff, 1622px 850px #ffffff, 1004px 1585px #ffffff;
+    animation: twinkle 3s ease-in-out infinite alternate;
+  }
+  
+  .stars::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    box-shadow: 
+      744px 522px #ffffff, 1034px 1321px #ffffff, 1192px 859px #ffffff,
+      83px 698px #ffffff, 1305px 928px #ffffff, 477px 453px #ffffff, 
+      1501px 998px #ffffff, 886px 1038px #ffffff, 899px 623px #ffffff,
+      790px 722px #ffffff, 581px 329px #ffffff, 147px 433px #ffffff, 
+      954px 796px #ffffff, 969px 1145px #ffffff, 350px 492px #ffffff, 
+      170px 810px #ffffff, 844px 614px #ffffff, 978px 983px #ffffff, 
+      218px 451px #ffffff, 622px 850px #ffffff, 704px 185px #ffffff;
+    animation: twinkle 3s ease-in-out infinite alternate-reverse;
+  }
 }
 
 @keyframes fade-in {
@@ -137,4 +175,15 @@ body {
 .bg-eye-pattern {
   background-image: radial-gradient(rgba(245, 158, 11, 0.1) 1px, transparent 1px);
   background-size: 30px 30px;
+}
+
+/* Greek-inspired meander pattern */
+.greek-meander {
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20v20H0V0zm10 17.5v-15H2.5v15H10zm20 0v-15h-7.5v15H30zM20 0h20v20H20V0zM0 20h20v20H0V20zm10 17.5v-15H2.5v15H10zm30 0v-15h-7.5v15H40zM20 20h20v20H20V20z' fill='%23f59e0b' fill-opacity='0.06' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+/* Greek column effect */
+.greek-column {
+  background-image: linear-gradient(180deg, rgba(245, 158, 11, 0.05) 0%, transparent 10%, transparent 90%, rgba(245, 158, 11, 0.05) 100%),
+                    repeating-linear-gradient(90deg, rgba(245, 158, 11, 0.03) 0px, rgba(245, 158, 11, 0.03) 5px, transparent 5px, transparent 10px);
 }

@@ -5,6 +5,7 @@ import ScanForm, { ScanResult } from '@/components/ScanForm';
 import ScanResults from '@/components/ScanResults';
 import AboutSection from '@/components/AboutSection';
 import { Eye, AlertCircle } from 'lucide-react';
+import OdinEyeVisualization from '@/components/OdinEyeVisualization';
 
 const Index = () => {
   const [scanResult, setScanResult] = useState<ScanResult | null>(null);
@@ -36,7 +37,7 @@ const Index = () => {
             <span className="font-semibold">See All, Know All, Secure All</span> - Discover your digital exposure across the internet and take control of your online privacy.
           </p>
           
-          <div className="mt-10 max-w-2xl mx-auto bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-lg border border-slate-200 dark:border-slate-700 backdrop-blur-sm">
+          <div className="mt-10 max-w-2xl mx-auto bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-lg border border-slate-200 dark:border-slate-700 backdrop-blur-sm greek-pattern">
             <div className="flex items-center justify-center gap-2 mb-6">
               <Eye className="text-amber-500 w-6 h-6 animate-pulse" />
               <h2 className="text-xl font-medium text-slate-800 dark:text-slate-200">Scan Your Digital Presence</h2>
@@ -44,6 +45,10 @@ const Index = () => {
             <ScanForm onScanComplete={handleScanComplete} />
           </div>
         </section>
+        
+        <div className="my-8">
+          <OdinEyeVisualization exposureLevel={scanResult?.exposureLevel || null} />
+        </div>
         
         <div id="results" className="scroll-mt-8">
           <ScanResults result={scanResult} />

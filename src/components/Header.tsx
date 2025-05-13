@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Eye, Search, Shield } from 'lucide-react';
+import { Eye, Search, Shield, Book } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ThemeToggle } from './ThemeToggle';
 
@@ -23,6 +23,13 @@ const Header: React.FC = () => {
         >
           <Search className="w-4 h-4" />
           <span>Scanner</span>
+        </Link>
+        <Link 
+          to="/documentation"
+          className="text-slate-300 hover:text-amber-500 transition-colors flex items-center gap-1 text-sm"
+        >
+          <Book className="w-4 h-4" />
+          <span>Documentation</span>
         </Link>
         <Link 
           to="/#about"
