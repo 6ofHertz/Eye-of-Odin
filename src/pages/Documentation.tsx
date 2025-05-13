@@ -277,6 +277,53 @@ exports.scanUsername = functions.https.onCall(async (data, context) => {
               </CardContent>
             </Card>
           </TabsContent>
+
+          <TabsContent value="visual-assets" className="space-y-6 animate-fade-in">
+            <Card>
+              <CardContent className="pt-6">
+                <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
+                  <Eye className="text-amber-500" />
+                  Visual Assets
+                </h2>
+                <div className="prose dark:prose-invert max-w-none">
+                  <p>
+                    The visual design of Eye of Odin incorporates Norse mythological themes, particularly focusing on Odin, to create a distinct and memorable user experience. Key visual assets are planned to enhance the application's aesthetic and convey its purpose effectively.
+                  </p>
+
+                  <h3 className="text-xl font-medium mt-6 mb-2">Essential Visuals</h3>
+                  <ul className="list-disc pl-5 space-y-2">
+                    <li>
+                      <strong>Loading Screen Illustration:</strong> A Nordic-style swirling vortex with runes, symbolizing data gathering.
+                    </li>
+                    <li>
+                      <strong>Dashboard Banner:</strong> Sleek, cyber-enhanced Odin's raven, overlooking digital landscapes.
+                    </li>
+                    <li>
+                      <strong>Icon Set:</strong> Minimalist icons representing privacy, security, open-source research, and data visibility.
+                    </li>
+                    <li>
+                      <strong>Threat Report Visual:</strong> Stylized Norse shield cracked by digital forces, representing vulnerabilities.
+                    </li>
+                    <li>
+                      <strong>404 Error Page Art:</strong> Odin’s raven searching the web, symbolizing lost data paths.
+                    </li>
+                    <li>
+                      <strong>Login & Authentication Graphic:</strong> A secure vault door with Norse carvings, emphasizing security.
+                    </li>
+                    <li>
+                      <strong>Dark Mode vs. Light Mode UI Accent:</strong> Subtle symbolic contrast between Odin’s wisdom and modern AI.
+                    </li>
+                    <li>
+                      <strong>Success & Warning Icons:</strong> Cyber-runes illuminating with green (success) & red (warning) colors.
+                    </li>
+                    <li>
+                      <strong>Footer Decorative Badge:</strong> Odin’s spear (Gungnir) merging with a digital network.
+                    </li>
+                  </ul>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
           
           <TabsContent value="implementation" className="space-y-6 animate-fade-in">
             <Card>
