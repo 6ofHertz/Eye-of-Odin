@@ -13,13 +13,13 @@ const ScanResults: React.FC<ScanResultsProps> = ({ result }) => {
   
   const exposureIcons = {
     'low': <Check className="w-5 h-5 text-emerald-500" />,
-    'medium': <AlertCircle className="w-5 h-5 text-amber-500" />,
+    'medium': <AlertCircle className="w-5 h-5 text-violet-500" />,
     'high': <AlertTriangle className="w-5 h-5 text-rose-500" />
   };
   
   const exposureColors = {
     'low': 'bg-emerald-900/30 text-emerald-400 border-emerald-600/50',
-    'medium': 'bg-amber-900/30 text-amber-400 border-amber-600/50',
+    'medium': 'bg-violet-900/30 text-violet-400 border-violet-600/50',
     'high': 'bg-rose-900/30 text-rose-400 border-rose-600/50'
   };
   
@@ -34,17 +34,17 @@ const ScanResults: React.FC<ScanResultsProps> = ({ result }) => {
       <Card className="overflow-hidden border-0 shadow-xl rounded-3xl bg-slate-800 border border-slate-700">
         <div className={`p-6 ${
           result.exposureLevel === 'low' ? 'bg-emerald-900/20' :
-          result.exposureLevel === 'medium' ? 'bg-amber-900/20' : 'bg-rose-900/20'
+          result.exposureLevel === 'medium' ? 'bg-violet-900/20' : 'bg-rose-900/20'
         }`}>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className={`p-2 rounded-full ${
                 result.exposureLevel === 'low' ? 'bg-emerald-900/50' :
-                result.exposureLevel === 'medium' ? 'bg-amber-900/50' : 'bg-rose-900/50'
+                result.exposureLevel === 'medium' ? 'bg-violet-900/50' : 'bg-rose-900/50'
               }`}>
                 <Eye className={`w-5 h-5 ${
                   result.exposureLevel === 'low' ? 'text-emerald-400' :
-                  result.exposureLevel === 'medium' ? 'text-amber-400' : 'text-rose-400'
+                  result.exposureLevel === 'medium' ? 'text-violet-400' : 'text-rose-400'
                 }`} />
               </div>
               <div>
@@ -70,7 +70,7 @@ const ScanResults: React.FC<ScanResultsProps> = ({ result }) => {
         <CardContent className="p-6">
           <div className="mb-6">
             <div className="flex items-center gap-2 mb-3">
-              <Globe className="w-5 h-5 text-amber-500" />
+              <Globe className="w-5 h-5 text-violet-500" />
               <h3 className="text-lg font-medium text-slate-200">Digital Presence</h3>
             </div>
             
@@ -88,7 +88,7 @@ const ScanResults: React.FC<ScanResultsProps> = ({ result }) => {
           
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <Search className="w-5 h-5 text-amber-500" />
+              <Search className="w-5 h-5 text-violet-500" />
               <h3 className="text-lg font-medium text-slate-200">Findings</h3>
             </div>
             
@@ -97,7 +97,7 @@ const ScanResults: React.FC<ScanResultsProps> = ({ result }) => {
                 <Card key={index} className="border bg-slate-700 border-slate-600 shadow-md">
                   <CardHeader className="pb-2 border-b border-slate-600/50">
                     <CardTitle className="text-slate-300 text-sm flex items-center gap-2">
-                      <Database className="w-4 h-4 text-amber-500" />
+                      <Database className="w-4 h-4 text-violet-500" />
                       {finding.source}
                     </CardTitle>
                   </CardHeader>
@@ -112,7 +112,7 @@ const ScanResults: React.FC<ScanResultsProps> = ({ result }) => {
       </Card>
       
       <div className="mt-8 p-6 bg-slate-800 rounded-2xl border border-slate-700 shadow-lg">
-        <h4 className="text-amber-500 mb-3 flex items-center gap-2 font-medium">
+        <h4 className="text-violet-500 mb-3 flex items-center gap-2 font-medium">
           <Shield className="w-5 h-5" />
           Privacy Recommendation:
         </h4>

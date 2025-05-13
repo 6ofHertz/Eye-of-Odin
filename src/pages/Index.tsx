@@ -30,7 +30,7 @@ const Index = () => {
       
       <main className="flex-1 container mx-auto px-4 py-8">
         <section className="max-w-3xl mx-auto text-center mb-16 mt-8 animate-fade-in">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-amber-500 to-amber-700 dark:from-amber-400 dark:to-amber-600 text-transparent bg-clip-text">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-violet-500 to-purple-700 dark:from-violet-400 dark:to-purple-600 text-transparent bg-clip-text">
             Eye of Odin
           </h1>
           <p className="text-xl text-slate-700 dark:text-slate-300 max-w-2xl mx-auto">
@@ -39,7 +39,7 @@ const Index = () => {
           
           <div className="mt-10 max-w-2xl mx-auto bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-lg border border-slate-200 dark:border-slate-700 backdrop-blur-sm greek-pattern">
             <div className="flex items-center justify-center gap-2 mb-6">
-              <Eye className="text-amber-500 w-6 h-6 animate-pulse" />
+              <Eye className="text-violet-500 w-6 h-6 animate-pulse" />
               <h2 className="text-xl font-medium text-slate-800 dark:text-slate-200">Scan Your Digital Presence</h2>
             </div>
             <ScanForm onScanComplete={handleScanComplete} />
@@ -56,9 +56,9 @@ const Index = () => {
         
         <div className="my-12 max-w-5xl mx-auto">
           <div className="flex items-center justify-center gap-3 mb-8">
-            <AlertCircle className="text-amber-500 w-5 h-5" />
+            <AlertCircle className="text-violet-500 w-5 h-5" />
             <h2 className="text-2xl font-semibold text-slate-800 dark:text-slate-200">Privacy Matters</h2>
-            <AlertCircle className="text-amber-500 w-5 h-5" />
+            <AlertCircle className="text-violet-500 w-5 h-5" />
           </div>
           
           <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-lg">

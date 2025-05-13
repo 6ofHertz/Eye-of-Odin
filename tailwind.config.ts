@@ -63,17 +63,17 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Greek/Nordic inspired theme colors
+				// Greek/Nordic inspired theme colors - updated to purple theme
 				theme: {
-					primary: '#F59E0B',
-					secondary: '#EA580C',
-					accent: '#F97316',
+					primary: '#5b21b6',
+					secondary: '#7c3aed',
+					accent: '#8b5cf6',
 					background: '#F5F7FA',
 					foreground: '#2A2C35',
 					border: '#E2E8F0',
 					muted: '#94A3B8',
 					success: '#10B981',
-					warning: '#F59E0B',
+					warning: '#7c3aed',
 					danger: '#EF4444',
 					card: '#FFFFFF',
 				}

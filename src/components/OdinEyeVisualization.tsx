@@ -10,7 +10,7 @@ const OdinEyeVisualization: React.FC<OdinEyeVisualizationProps> = ({ exposureLev
   if (!exposureLevel) {
     return (
       <div className="relative h-40 flex items-center justify-center">
-        <div className="text-amber-500 text-lg">Enter your details to scan with the Eye of Odin</div>
+        <div className="text-violet-500 text-lg">Enter your details to scan with the Eye of Odin</div>
       </div>
     );
   }
@@ -31,24 +31,24 @@ const OdinEyeVisualization: React.FC<OdinEyeVisualizationProps> = ({ exposureLev
         }`}>
           <div className={`rounded-full w-32 h-32 flex items-center justify-center 
             ${exposureLevel === 'low' ? 'bg-emerald-900/20 border-emerald-500/40' : 
-              exposureLevel === 'medium' ? 'bg-amber-900/20 border-amber-500/40' : 
+              exposureLevel === 'medium' ? 'bg-violet-900/20 border-violet-500/40' : 
               'bg-rose-900/20 border-rose-500/40'} 
             border-4 shadow-lg`}>
             <Eye className={`w-16 h-16 
               ${exposureLevel === 'low' ? 'text-emerald-400' : 
-                exposureLevel === 'medium' ? 'text-amber-400' : 
+                exposureLevel === 'medium' ? 'text-violet-400' : 
                 'text-rose-400'}`} />
           </div>
           
           {/* Animated rings based on exposure */}
           <div className={`absolute -inset-4 rounded-full border-2 opacity-0 
             ${exposureLevel === 'low' ? 'border-emerald-500 animate-ping-slow' : 
-              exposureLevel === 'medium' ? 'border-amber-500 animate-ping' : 
+              exposureLevel === 'medium' ? 'border-violet-500 animate-ping' : 
               'border-rose-500 animate-ping-fast'}`}>
           </div>
           <div className={`absolute -inset-8 rounded-full border opacity-0 
             ${exposureLevel === 'low' ? 'border-emerald-500/50 animate-ping-slow delay-75' : 
-              exposureLevel === 'medium' ? 'border-amber-500/50 animate-ping delay-75' : 
+              exposureLevel === 'medium' ? 'border-violet-500/50 animate-ping delay-75' : 
               'border-rose-500/50 animate-ping-fast delay-75'}`}>
           </div>
         </div>
@@ -60,7 +60,7 @@ const OdinEyeVisualization: React.FC<OdinEyeVisualizationProps> = ({ exposureLev
           exposureLevel === 'low' 
             ? 'bg-emerald-900/60 text-emerald-200 border border-emerald-700/50' 
             : exposureLevel === 'medium'
-              ? 'bg-amber-900/60 text-amber-200 border border-amber-700/50'
+              ? 'bg-violet-900/60 text-violet-200 border border-violet-700/50'
               : 'bg-rose-900/60 text-rose-200 border border-rose-700/50 animate-pulse'
         }`}>
           {exposureLevel === 'low' && 'Protected by Odin (Low Exposure)'}
@@ -72,7 +72,7 @@ const OdinEyeVisualization: React.FC<OdinEyeVisualizationProps> = ({ exposureLev
       {/* Additional effects based on exposure level */}
       {exposureLevel === 'medium' && (
         <div className="absolute top-6 right-1/4 animate-float opacity-70">
-          <AlertTriangle className="w-6 h-6 text-amber-500/80" />
+          <AlertTriangle className="w-6 h-6 text-violet-500/80" />
         </div>
       )}
       

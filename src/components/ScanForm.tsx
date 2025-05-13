@@ -126,7 +126,7 @@ const ScanForm: React.FC<ScanFormProps> = ({ onScanComplete }) => {
               key={type}
               className={`flex-1 flex flex-col items-center gap-2 p-3 rounded-xl cursor-pointer transition-all border-2 
                 ${scanType === type 
-                  ? 'bg-amber-500/10 border-amber-500 text-amber-500 shadow-md' 
+                  ? 'bg-violet-500/10 border-violet-500 text-violet-500 shadow-md' 
                   : 'bg-slate-100 dark:bg-slate-700 border-slate-200 dark:border-slate-600 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600'}`}
               onClick={() => setScanType(type)}
             >
@@ -139,18 +139,18 @@ const ScanForm: React.FC<ScanFormProps> = ({ onScanComplete }) => {
         <div className="relative">
           <Input
             placeholder={`Enter your ${scanType}...`}
-            className="search-input pl-12 bg-slate-100 dark:bg-slate-700 border-slate-200 dark:border-slate-600 text-slate-800 dark:text-slate-200 focus:border-amber-500 focus:ring-amber-500"
+            className="search-input pl-12 bg-slate-100 dark:bg-slate-700 border-slate-200 dark:border-slate-600 text-slate-800 dark:text-slate-200 focus:border-violet-500 focus:ring-violet-500"
             value={input}
             onChange={(e) => setInput(e.target.value)}
           />
-          <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-amber-500">
+          <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-violet-500">
             <Search className="w-5 h-5" />
           </div>
         </div>
         
         <Button 
           type="submit" 
-          className="w-full py-6 rounded-xl bg-gradient-to-r from-amber-500 to-amber-700 hover:opacity-90 transition-opacity text-slate-900 flex gap-2 font-medium"
+          className="w-full py-6 rounded-xl bg-gradient-to-r from-violet-500 to-purple-700 hover:opacity-90 transition-opacity text-white flex gap-2 font-medium"
           disabled={isScanning}
         >
           {isScanning ? (
