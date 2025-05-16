@@ -10,16 +10,11 @@ import { searchWeb } from '@/utils/googleCustomSearch'; // Import searchWeb
 type ScanType = 'name' | 'handle' | 'email';
 
 // Define a new interface for findings that can be either breach data or general data
-interface Finding {
+export interface Finding {
   source: string;
   data?: string; // Data for non-breach findings
   breach?: Breach; // Breach object for breach findings
 }
-
-interface ScanFormProps {
-  onScanComplete: (result: ScanResult | null) => void; // onScanComplete can now accept null
-}
-
 
 // Update ScanResult interface to use the new Finding type
 interface ScanFormProps {
@@ -30,7 +25,7 @@ export interface ScanResult {
   input: string;
   inputType: ScanType;
   exposureLevel: 'low' | 'medium' | 'high';
-  sources: string[];
+  sources: string[]; // Consider making this Finding[] as well for consistency?
   findings: Finding[]; // Use the new Finding interface
   error?: string; // Add an optional error property
 }
@@ -81,7 +76,7 @@ const ScanForm: React.FC<ScanFormProps> = ({ onScanComplete }) => {
           scanResult = {
             input,
             inputType: scanType,
-            exposureLevel,
+ exposureLevel: exposureLevel,
 
             sources: breaches ? breaches.map(b => b.Title) : [], // Use breach titles as sources
             findings: breaches ? breaches.map(b => ({ source: b.Title, breach: b })) : [], // Store the full breach object
@@ -94,56 +89,50 @@ const ScanForm: React.FC<ScanFormProps> = ({ onScanComplete }) => {
 
           const findings: { source: string; data: string }[] = [];
           const sources: string[] = [];
-          let highRiskCount = 0;
-          let mediumRiskCount = 0;
+          let riskScore = 0;
 
-          // Define keywords and sensitive sites (you can expand these lists)
-          const highRiskKeywords = ['breach', 'exposed', 'doxed', 'pastebin', 'forum', 'leak', 'sensitive data', 'credentials', 'password', 'ssn', 'social security number', 'credit card'];
+          // Define keywords and sensitive sites
+          const highRiskKeywords = [
+            'breach', 'exposed', 'doxed', 'pastebin', 'forum', 'leak', 'sensitive data',
+            'credentials', 'password', 'ssn', 'social security number', 'credit card',
+            'bank account', 'private key', 'confidential', 'illegal', 'dark web',
+            'exploit', 'vulnerability', 'criminal record', 'arrested', 'convicted'
+          ];
           const sensitiveSites = ['pastebin.com', 'mega.nz', 'anonfiles.com']; // Add other relevant sites
 
           if (searchResults && searchResults.length > 0) {
             sources.push('Google Search');
             searchResults.forEach(item => {
               // Basic keyword and site check for risk assessment
-              let isHighRisk = false;
-              let isMediumRisk = false;
-
               const titleAndSnippet = `${item.title} ${item.snippet || ''}`.toLowerCase();
 
               // Check for high-risk keywords
               if (highRiskKeywords.some(keyword => titleAndSnippet.includes(keyword))) {
-                isHighRisk = true;
-                highRiskCount++;
+                riskScore += 5; // Higher points for strong keywords
               }
 
               // Check for sensitive sites
               if (sensitiveSites.some(site => item.link.includes(site))) {
-                isHighRisk = true; // Treat sensitive site links as high risk
-                highRiskCount++;
+                riskScore += 5; // Higher points for sensitive sites
               }
 
               // If not high risk, check for general mentions on social media or other platforms (medium risk)
               const socialMediaKeywords = ['twitter.com', 'facebook.com', 'linkedin.com', 'instagram.com', 'reddit.com'];
-               if (!isHighRisk && socialMediaKeywords.some(keyword => item.link.includes(keyword))) {
-                 isMediumRisk = true;
-                 mediumRiskCount++;
-               } else if (!isHighRisk && (item.title || item.snippet)) {
+               if (socialMediaKeywords.some(keyword => item.link.includes(keyword))) {
+                 riskScore += 1; // Lower points for social media mentions
+               } else if (item.title || item.snippet) {
                 // Any other result that's not high risk is considered medium risk for now if it has content
-                 isMediumRisk = true;
-                 mediumRiskCount++;
+                 riskScore += 1; // Lower points for other mentions
                }
 
               findings.push({
-                source: item.title || 'Google Search', // Use title as source if available
+                source: 'Google Search',
                 data: `${item.title} - ${item.link}` // You can format this data as needed
               });
             });
-
-            // Determine exposure level based on risk counts
-            let exposureLevel: 'low' | 'medium' | 'high';
-            if (highRiskCount > 0) {
+            if (riskScore > 15) { // Example threshold for High
               exposureLevel = 'high';
-            } else if (mediumRiskCount > 0) {
+            } else if (riskScore > 5) { // Example threshold for Medium
               exposureLevel = 'medium';
             } else {
               exposureLevel = 'low';
@@ -153,7 +142,7 @@ const ScanForm: React.FC<ScanFormProps> = ({ onScanComplete }) => {
                 input,
                 inputType: scanType,
                 exposureLevel,
-                sources,
+ sources,
                 findings,
               } as ScanResult; // Cast to ScanResult
 
@@ -164,7 +153,7 @@ const ScanForm: React.FC<ScanFormProps> = ({ onScanComplete }) => {
                 inputType: scanType,
                 exposureLevel: 'low',
                 sources: ['Google Search'],
-                findings: [{ source: 'Google Search', data: 'No relevant public mentions found.' }], // Still use data for this case
+                findings: [{ source: 'Google Search', data: 'No relevant public mentions found.' }],
               };
           }
         }

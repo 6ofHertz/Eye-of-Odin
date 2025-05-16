@@ -4,7 +4,7 @@ import Header from '@/components/Header';
 import ScanForm, { ScanResult } from '@/components/ScanForm';
 import ScanResults from '@/components/ScanResults';
 import AboutSection from '@/components/AboutSection';
-import { Eye, AlertCircle, ArrowDown } from 'lucide-react';
+import { Eye, AlertCircle, ArrowDown, BarChart, Shield } from 'lucide-react';
 import OdinEyeVisualization from '@/components/OdinEyeVisualization';
 import BackgroundVideo from '@/components/BackgroundVideo';
 import ScrollAnimationWrapper from '@/components/ScrollAnimationWrapper';
