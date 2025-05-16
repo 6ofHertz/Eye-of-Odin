@@ -112,13 +112,13 @@ const Index = () => {
         
         <section id="scan-section" className="scroll-mt-24">
           <ScrollAnimationWrapper>
-            <div className="max-w-2xl mx-auto bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-lg border border-slate-200 dark:border-slate-700 backdrop-blur-sm relative overflow-hidden">
+            <div className="max-w-2xl mx-auto p-8 rounded-3xl shadow-lg border border-slate-200 dark:border-slate-700 relative overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-violet-500 via-purple-600 to-violet-500"></div>
               <div className="flex items-center justify-center gap-2 mb-6">
                 <Eye className="text-violet-500 w-6 h-6 animate-pulse" />
                 <h2 className="text-xl font-medium text-slate-800 dark:text-slate-200">Scan Your Digital Presence</h2>
               </div>
-              <ScanForm onScanComplete={handleScanComplete} />
+              <ScanForm style={{ border: '2px solid red' }} onScanComplete={handleScanComplete} />
             </div>
           </ScrollAnimationWrapper>
         </section>
