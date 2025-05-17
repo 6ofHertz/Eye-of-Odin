@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+import { incrementApiCallCounter } from '../utils/metrics';
 const GOOGLE_SEARCH_API_BASE_URL = 'https://www.googleapis.com/customsearch/v1';
 const GOOGLE_SEARCH_API_KEY = import.meta.env.VITE_GOOGLE_SEARCH_API_KEY; // We will configure this in the next step
 const GOOGLE_SEARCH_ENGINE_ID = import.meta.env.VITE_GOOGLE_SEARCH_ENGINE_ID; // We will configure this in the next step
@@ -24,6 +25,7 @@ export const searchWeb = async (query: string): Promise<SearchResult[] | null> =
         q: query,
       },
     });
+    incrementApiCallCounter();
     return response.data.items || [];
   } catch (error) {
     if (axios.isAxiosError(error)) {

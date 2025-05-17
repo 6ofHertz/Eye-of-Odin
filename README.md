@@ -1,3 +1,5 @@
+![Eye of Odin Logo](create%20a%20logo%20inspired%20by%20Greek%20mythology%2C%20with%20illustrative%20and%20in-depth%20design%20elements.png)
+
 # Eye of Odin - OSINT Digital Footprint Scanner
 
 ## Project Overview

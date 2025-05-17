@@ -1,8 +1,8 @@
 import axios from 'axios';
+import { incrementApiCallCounter } from '../utils/metrics';
 
 const HIBP_API_BASE_URL = 'https://api.haveibeenpwned.com/breachedaccount/';
 const HIBP_API_KEY = import.meta.env.VITE_HIBP_API_KEY;
-
 export interface Breach {
   Title: string;
   Name: string;
@@ -19,7 +19,6 @@ export interface Breach {
   IsRetired: boolean;
   IsSpamList: boolean;
   IsMalwareInfected: boolean;
-  LogoType: string;
 }
 
 export const getBreachesForAccount = async (email: string): Promise<Breach[] | null> => {
@@ -35,6 +34,7 @@ export const getBreachesForAccount = async (email: string): Promise<Breach[] | n
         'User-Agent': 'EyeOfOdin', // Replace with your application name
       },
     });
+    await incrementApiCallCounter();
     return response.data;
   } catch (error) {
     if (axios.isAxiosError(error)) {
