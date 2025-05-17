@@ -3,66 +3,48 @@
 @tailwind utilities;
 
 :root {
-  --background: 0 0% 100%;
-  --foreground: 222.2 84% 4.9%;
-  --card: 0 0% 100%;
-  --card-foreground: 222.2 84% 4.9%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 222.2 84% 4.9%;
-  --primary: 221.2 83.2% 53.3%;
-  --primary-foreground: 210 40% 98%;
-  --secondary: 210 40% 96.1%;
-  --secondary-foreground: 222.2 47.4% 11.2%;
-  --muted: 210 40% 96.1%;
-  --muted-foreground: 215.4 16.3% 46.9%;
-  --accent: 210 40% 96.1%;
-  --accent-foreground: 222.2 47.4% 11.2%;
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 210 40% 98%;
-  --border: 214.3 31.8% 91.4%;
-  --input: 214.3 31.8% 91.4%;
-  --ring: 221.2 83.2% 53.3%;
+  --background: #F8E7EB;
+  --foreground: #333333;
+  --card: #FFFFFF;
+  --card-foreground: #333333;
+  --popover: #FFFFFF;
+  --popover-foreground: #333333;
+  --primary: #FF6B6B;
+  --primary-foreground: #FFFFFF;
+  --secondary: #FF9999;
+  --secondary-foreground: #555555;
+  --muted: #F0D9DF;
+  --muted-foreground: #555555;
+  --accent: #FFB3B3;
+  --accent-foreground: #333333;
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+  --border: #E0C8CC;
+  --input: #F0E0E3;
+  --ring: #FF6B6B;
   --radius: 0.5rem;
-  --theme-background: #ffffff;
-  --theme-foreground: #0f172a;
-  --theme-muted: #64748b;
-  --theme-border: #e2e8f0;
-  --theme-primary: #5b21b6;
-  --theme-secondary: #7c3aed;
-  --theme-accent: #8b5cf6;
 }
 
 .dark {
-  --background: 222.2 84% 4.9%;
-  --foreground: 210 40% 98%;
-  --card: 222.2 84% 4.9%;
-  --card-foreground: 210 40% 98%;
-  --popover: 222.2 84% 4.9%;
-  --popover-foreground: 210 40% 98%;
-  --primary: 217.2 91.2% 59.8%;
-  --primary-foreground: 222.2 47.4% 11.2%;
-  --secondary: 217.2 32.6% 17.5%;
-  --secondary-foreground: 210 40% 98%;
-  --muted: 217.2 32.6% 17.5%;
-  --muted-foreground: 215 20.2% 65.1%;
-  --accent: 217.2 32.6% 17.5%;
-  --accent-foreground: 210 40% 98%;
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 210 40% 98%;
-  --border: 217.2 32.6% 17.5%;
-  --input: 217.2 32.6% 17.5%;
-  --ring: 224.3 76.3% 48%;
-  --theme-background: #0f172a;
-  --theme-foreground: #f8fafc;
-  --theme-muted: #64748b;
-  --theme-border: #334155;
-  --theme-primary: #5b21b6;
-  --theme-secondary: #7c3aed;
-  --theme-accent: #8b5cf6;
-}
-
-html {
-  scroll-behavior: smooth;
+  --background: #1A1A1A;
+  --foreground: #CCCCCC;
+  --card: #222222;
+  --card-foreground: #CCCCCC;
+  --popover: #222222;
+  --popover-foreground: #CCCCCC;
+  --primary: #EEEEEE;
+  --primary-foreground: #1A1A1A;
+  --secondary: #AAAAAA;
+  --secondary-foreground: #1A1A1A;
+  --muted: #333333;
+  --muted-foreground: #999999;
+  --accent: #888888;
+  --accent-foreground: #1A1A1A;
+  --destructive: #EF4444;
+  --destructive-foreground: #CCCCCC;
+  --border: #444444;
+  --input: #2A2A2A;
+  --ring: #EEEEEE;
 }
 
 body {
@@ -70,119 +52,47 @@ body {
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
   body {
     @apply bg-background text-foreground transition-colors duration-300;
   }
 }
 
 @layer utilities {
+  /* Simplified fade-in animation */
   .animate-fade-in {
-    animation: fade-in 0.5s ease-out forwards;
-  }
-  
-  .animate-pulse {
-    animation: pulse 2s infinite;
-  }
-  
-  .eye-glow {
-    filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.8));
-    animation: eye-glow 3s infinite;
-  }
-  
-  /* Greek-inspired patterns and elements */
-  .greek-border {
-    background-image: repeating-linear-gradient(45deg, rgba(91, 33, 182, 0.1) 0, rgba(91, 33, 182, 0.1) 2px, transparent 0, transparent 8px);
-  }
-  
-  .stars {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    background: transparent;
-    box-shadow: 
-      1744px 122px #ffffff, 134px 1321px #ffffff, 92px 859px #ffffff,
-      1183px 98px #ffffff, 505px 1528px #ffffff, 1277px 453px #ffffff, 
-      1101px 198px #ffffff, 1386px 1038px #ffffff, 399px 1623px #ffffff,
-      990px 722px #ffffff, 981px 329px #ffffff, 1547px 433px #ffffff, 
-      1154px 1196px #ffffff, 169px 1145px #ffffff, 650px 492px #ffffff, 
-      370px 1610px #ffffff, 1144px 614px #ffffff, 98px 383px #ffffff, 
-      518px 451px #ffffff, 1622px 850px #ffffff, 1004px 1585px #ffffff;
-    animation: twinkle 3s ease-in-out infinite alternate;
-  }
-  
-  .stars::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    box-shadow: 
-      744px 522px #ffffff, 1034px 1321px #ffffff, 1192px 859px #ffffff,
-      83px 698px #ffffff, 1305px 928px #ffffff, 477px 453px #ffffff, 
-      1501px 998px #ffffff, 886px 1038px #ffffff, 899px 623px #ffffff,
-      790px 722px #ffffff, 581px 329px #ffffff, 147px 433px #ffffff, 
-      954px 796px #ffffff, 969px 1145px #ffffff, 350px 492px #ffffff, 
-      170px 810px #ffffff, 844px 614px #ffffff, 978px 983px #ffffff, 
-      218px 451px #ffffff, 622px 850px #ffffff, 704px 185px #ffffff;
-    animation: twinkle 3s ease-in-out infinite alternate-reverse;
+ animation: fade-in 0.5s ease-out forwards;
   }
 }
 
 @keyframes fade-in {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes pulse {
   0%, 100% {
+    opacity: 0.8;
+  }
+  50% {
     opacity: 1;
-  }
-  50% {
-    opacity: 0.6;
-  }
-}
-
-@keyframes eye-glow {
-  0%, 100% {
-    filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.6));
-  }
-  50% {
-    filter: drop-shadow(0 0 15px rgba(245, 158, 11, 0.9));
   }
 }
 
 /* Custom card styles for Eye of Odin theme with updated purple theme */
 .modern-card {
   @apply bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 transition-all hover:shadow-lg hover:shadow-purple-900/10;
+  /* Simplified styles for minimalistic look */
+  @apply rounded-lg shadow-md;
 }
 
 /* Search input custom styles */
 .search-input {
   @apply bg-slate-100 dark:bg-slate-700 border-slate-200 dark:border-slate-600 text-slate-800 dark:text-slate-200 focus:ring-violet-500 focus:border-violet-500;
+  /* Simplified styles for minimalistic look */
+  @apply rounded-md px-3 py-2;
 }
 
-/* Background animation for Eye of Odin */
-.bg-eye-pattern {
-  background-image: radial-gradient(rgba(91, 33, 182, 0.1) 1px, transparent 1px);
-  background-size: 30px 30px;
-}
-
-/* Greek-inspired meander pattern */
-.greek-meander {
-  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20v20H0V0zm10 17.5v-15H2.5v15H10zm20 0v-15h-7.5v15H30zM20 0h20v20H20V0zM0 20h20v20H0V20zm10 17.5v-15H2.5v15H10zm30 0v-15h-7.5v15H40zM20 20h20v20H20V20z' fill='%235b21b6' fill-opacity='0.06' fill-rule='evenodd'/%3E%3C/svg%3E");
-}
-
-/* Greek column effect */
-.greek-column {
-  background-image: linear-gradient(180deg, rgba(91, 33, 182, 0.05) 0%, transparent 10%, transparent 90%, rgba(91, 33, 182, 0.05) 100%),
-                    repeating-linear-gradient(90deg, rgba(91, 33, 182, 0.03) 0px, rgba(91, 33, 182, 0.03) 5px, transparent 5px, transparent 10px);
+/* Glowing orange text shadow for dark mode */
+.dark .text-primary {
+  text-shadow: 0 0 5px rgba(238, 238, 238, 0.8);
 }

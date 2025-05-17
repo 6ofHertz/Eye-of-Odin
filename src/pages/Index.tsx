@@ -112,6 +112,13 @@ const Index = () => {
         
         <section id="scan-section" className="scroll-mt-24">
           <ScrollAnimationWrapper>
+ <div className="flex justify-center mb-8">
+              <img
+ src="/create a logo inspired by Greek mythology, with illustrative and in-depth design elements.png"
+ alt="Eye of Odin Logo"
+ className="w-32 h-32 object-contain" // Adjust size as needed
+ />
+            </div>
             <div className="max-w-2xl mx-auto p-8 rounded-3xl shadow-lg border border-slate-200 dark:border-slate-700 relative overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-violet-500 via-purple-600 to-violet-500"></div>
               <div className="flex items-center justify-center gap-2 mb-6">

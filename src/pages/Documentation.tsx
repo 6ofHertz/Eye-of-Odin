@@ -21,7 +21,7 @@ const Documentation = () => {
           </p>
         </div>
 
-        <Tabs defaultValue="overview" className="w-full">
+ <Tabs defaultValue="apis" className="w-full">
           <TabsList className="grid grid-cols-2 md:grid-cols-5 mb-8">
             <TabsTrigger value="overview">Overview</TabsTrigger>
             <TabsTrigger value="frontend">Frontend</TabsTrigger>
@@ -193,7 +193,7 @@ const Documentation = () => {
               <CardContent className="pt-6">
                 <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
                   <Globe className="text-amber-500" />
-                  API Architecture
+                  External API Documentation
                 </h2>
                 <div className="prose dark:prose-invert max-w-none">
                   <p>
@@ -201,15 +201,71 @@ const Documentation = () => {
                   </p>
                   
                   <h3 className="text-xl font-medium mt-6 mb-2">External API Integrations</h3>
-                  <ul className="list-disc pl-5 space-y-2">
-                    <li><strong>HaveIBeenPwned:</strong> Check email addresses against known data breaches</li>
-                    <li><strong>Social Media APIs:</strong> Check username availability and profile data</li>
-                    <li><strong>Search Engine APIs:</strong> Search for public mentions and content</li>
-                    <li><strong>Public Records APIs:</strong> Search public databases for personal information</li>
-                    <li><strong>Domain Registry APIs:</strong> Lookup domain ownership information</li>
-                  </ul>
-                  
-                  <h3 className="text-xl font-medium mt-6 mb-2">API Implementation</h3>
+
+                  <Card className="mb-6">
+                    <CardContent className="pt-6">
+                      <h4 className="text-xl font-semibold mb-3 flex items-center gap-2">
+                        Have I Been Pwned (HIBP) API
+                      </h4>
+                      <p>
+                        The HIBP API is used to check if a given email address or username has been compromised in known data breaches.
+                      </p>
+                      <h5 className="text-lg font-medium mt-4 mb-2">Purpose in Eye of Odin</h5>
+                      <p>
+                        This API helps users identify if their email or username has been exposed in data breaches, contributing to the overall risk assessment of their digital footprint.
+                      </p>
+                      <h5 className="text-lg font-medium mt-4 mb-2">Usage</h5>
+                      <p>
+                        Eye of Odin calls the HIBP API with the user-provided email address or username. The API returns a list of breaches the account is associated with.
+                      </p>
+                      <h5 className="text-lg font-medium mt-4 mb-2">Relevant Endpoints</h5>
+                      <ul className="list-disc pl-5 space-y-1">
+                        <li>
+                          <code>GET /breachedaccount/{account}</code>: Retrieves all breaches for an account.
+                        </li>
+                        <li>
+                          <code>GET /pasteaccount/{account}</code>: Retrieves all pastes for an account.
+                        </li>
+                      </ul>
+                      <h5 className="text-lg font-medium mt-4 mb-2">Documentation</h5>
+                      <p>
+                        For full details, refer to the official Have I Been Pwned API documentation.
+                      </p>
+                    </CardContent>
+                  </Card>
+
+                  <Card>
+                    <CardContent className="pt-6">
+                      <h4 className="text-xl font-semibold mb-3 flex items-center gap-2">
+                        Google Custom Search API
+                      </h4>
+                      <p>
+                        The Google Custom Search API allows Eye of Odin to programmatically search the web using a specified search engine and retrieve structured search results.
+                      </p>
+                      <h5 className="text-lg font-medium mt-4 mb-2">Purpose in Eye of Odin</h5>
+                      <p>
+                        This API is used to search for public mentions of usernames, names, or other identifiable information across various websites and platforms configured in a custom search engine.
+                      </p>
+                      <h5 className="text-lg font-medium mt-4 mb-2">Usage</h5>
+                      <p>
+                        Eye of Odin sends search queries to the Google Custom Search API with the user's input (e.g., username). The API returns a list of search results, including titles, snippets, and URLs.
+                      </p>
+                      <h5 className="text-lg font-medium mt-4 mb-2">Relevant Endpoints</h5>
+                      <ul className="list-disc pl-5 space-y-1">
+                        <li>
+                          <code>GET /customsearch/v1</code>: Performs a search query.
+                        </li>
+                      </ul>
+                      <h5 className="text-lg font-medium mt-4 mb-2">Documentation</h5>
+                      <p>
+                        For full details, refer to the official Google Custom Search API documentation.
+                      </p>
+                    </CardContent>
+                  </Card>
+
+                  {/* Removed other generic API mentions to focus on documented APIs */}
+
+                  <h3 className="text-xl font-medium mt-6 mb-2">Internal API Implementation</h3>
                   <p>
                     Internal APIs are implemented using Firebase Cloud Functions:
                   </p>

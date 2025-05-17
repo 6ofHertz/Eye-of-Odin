@@ -24,7 +24,11 @@ const ScrollAnimationWrapper: React.FC<ScrollAnimationWrapperProps> = ({
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setTimeout(() => {
-              entry.target.classList.add('animate-in');
+              // Add animate-in class to all children except those with class 'scan-input'
+              entry.target.querySelectorAll(':scope > *:not(.scan-input)').forEach((child) => {
+                child.classList.add('animate-in');
+              });
+              entry.target.classList.add('parent-animate-in'); // Add a class to the parent to signal animation started
             }, delay);
           }
         });
@@ -46,14 +50,14 @@ const ScrollAnimationWrapper: React.FC<ScrollAnimationWrapperProps> = ({
   const getDirectionClass = () => {
     switch (direction) {
       case 'left':
-        return 'data-[state=animate-in]:translate-x-0 -translate-x-10 opacity-0 data-[state=animate-in]:opacity-100 transition-all duration-500 ease-out';
+        return 'data-[state=parent-animate-in]:translate-x-0 -translate-x-10 opacity-0 data-[state=parent-animate-in]:opacity-100 transition-all duration-500 ease-out';
       case 'right':
-        return 'data-[state=animate-in]:translate-x-0 translate-x-10 opacity-0 data-[state=animate-in]:opacity-100 transition-all duration-500 ease-out';
+        return 'data-[state=parent-animate-in]:translate-x-0 translate-x-10 opacity-0 data-[state=parent-animate-in]:opacity-100 transition-all duration-500 ease-out';
       case 'down':
-        return 'data-[state=animate-in]:translate-y-0 -translate-y-10 opacity-0 data-[state=animate-in]:opacity-100 transition-all duration-500 ease-out';
+        return 'data-[state=parent-animate-in]:translate-y-0 -translate-y-10 opacity-0 data-[state=parent-animate-in]:opacity-100 transition-all duration-500 ease-out';
       case 'up':
       default:
-        return 'data-[state=animate-in]:translate-y-0 translate-y-10 opacity-0 data-[state=animate-in]:opacity-100 transition-all duration-500 ease-out';
+        return 'data-[state=parent-animate-in]:translate-y-0 translate-y-10 opacity-0 data-[state=parent-animate-in]:opacity-100 transition-all duration-500 ease-out';
     }
   };
 
@@ -66,5 +70,6 @@ const ScrollAnimationWrapper: React.FC<ScrollAnimationWrapperProps> = ({
     </div>
   );
 };
+
 
 export default ScrollAnimationWrapper;
